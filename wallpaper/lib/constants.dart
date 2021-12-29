@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+double cardElevation = 10.0;
+double circularRadius = 16.0;
+
+Color backgroundColor = const Color(0xff1A1A2E);
+Color appBarColor = const Color(0xff16213E);
+Color buttonColor = const Color(0xff0F3460);
+Color textColor = const Color(0xffFCDAB7);
+
+TextStyle textStyle = TextStyle(color: textColor, letterSpacing: 1.05);
+
+int wallpapersPerCategory = 80;
+
+List<String> wallpaperCategories = [
+  'Nature',
+  'Ocean',
+  'Flowers',
+  'Black',
+  'Couples',
+  'People',
+  'Mans',
+  'Womens',
+  'Food',
+  'LifeStyle',
+  'Animals',
+  'Sky'
+];
