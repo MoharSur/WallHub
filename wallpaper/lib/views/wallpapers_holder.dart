@@ -31,8 +31,8 @@ class WallpapersHolder extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(circularRadius),
               //border: Border.all(color: Colors.red, width: 2.0),
-              image:
-                  DecorationImage(image: CachedNetworkImageProvider(url), fit: BoxFit.cover)),
+              image: DecorationImage(
+                  image: CachedNetworkImageProvider(url), fit: BoxFit.cover)),
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Opacity(

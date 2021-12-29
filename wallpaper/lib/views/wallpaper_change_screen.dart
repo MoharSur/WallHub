@@ -6,23 +6,17 @@ import 'package:wallpaper/constants.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:wallpaper_manager/wallpaper_manager.dart';
 
-class WallpaperChangeScreen extends StatefulWidget {
+class WallpaperChangeScreen extends StatelessWidget {
   final String url;
   final num id;
   const WallpaperChangeScreen({Key? key, required this.url, required this.id})
       : super(key: key);
 
-  @override
-  State<WallpaperChangeScreen> createState() => _WallpaperChangeScreenState();
-}
-
-class _WallpaperChangeScreenState extends State<WallpaperChangeScreen> {
-  bool isLoading = false;
   Future<void> changeWallpaper() async {
     int wallpaperLocation = WallpaperManager.HOME_SCREEN;
 
     // holds reference of the image file
-    var file = await DefaultCacheManager().getSingleFile(widget.url);
+    var file = await DefaultCacheManager().getSingleFile(url);
 
     try {
       WallpaperManager.setWallpaperFromFile(file.path, wallpaperLocation);
@@ -50,9 +44,6 @@ class _WallpaperChangeScreenState extends State<WallpaperChangeScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            isLoading
-                ? const Center(child: CircularProgressIndicator())
-                : Container(),
             Expanded(
               child: Card(
                 color: backgroundColor,
@@ -60,11 +51,11 @@ class _WallpaperChangeScreenState extends State<WallpaperChangeScreen> {
                     borderRadius: BorderRadius.circular(circularRadius)),
                 elevation: cardElevation,
                 child: Hero(
-                  tag: widget.url,
+                  tag: url,
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(circularRadius),
                       child: CachedNetworkImage(
-                          imageUrl: widget.url,
+                          imageUrl: url,
                           fit: BoxFit.cover,
                           width: double.infinity)),
                 ),
@@ -72,22 +63,16 @@ class _WallpaperChangeScreenState extends State<WallpaperChangeScreen> {
             ),
             const SizedBox(height: 25),
             ElevatedButton(
-                style: ButtonStyle(
-                  padding:
-                      MaterialStateProperty.all(const EdgeInsets.all(20.0)),
-                  foregroundColor: MaterialStateProperty.all(textColor),
-                  backgroundColor: MaterialStateProperty.all(buttonColor),
-                ),
-                onPressed: () async {
-                  setState(() {
-                    isLoading = true;
-                  });
-                  await changeWallpaper();
-                  setState(() {
-                    isLoading = false;
-                  });
-                },
-                child: const Text('Set Wallpaper')),
+                    style: ButtonStyle(
+                      padding:
+                          MaterialStateProperty.all(const EdgeInsets.all(20.0)),
+                      foregroundColor: MaterialStateProperty.all(textColor),
+                      backgroundColor: MaterialStateProperty.all(buttonColor),
+                    ),
+                    onPressed: () {
+                      changeWallpaper();
+                    },
+                    child: const Text('Set Wallpaper')),
             const SizedBox(height: 25),
           ],
         ),
