@@ -30,6 +30,7 @@ class WallpaperDisplayScreen extends StatelessWidget {
         body: Padding(
             padding: const EdgeInsets.all(8.0),
             child: StaggeredGridView.countBuilder(
+                physics: const BouncingScrollPhysics(),
                 itemCount: controller.wallpapers[categoryIndex].length,
                 mainAxisSpacing: 8.0,
                 crossAxisSpacing: 8.0,

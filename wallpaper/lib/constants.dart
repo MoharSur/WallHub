@@ -13,16 +13,34 @@ TextStyle textStyle = TextStyle(color: textColor, letterSpacing: 1.05);
 int wallpapersPerCategory = 80;
 
 List<String> wallpaperCategories = [
+  
   'Nature',
+  'Landscape',
+
   'Ocean',
-  'Flowers',
-  'Black',
+  'Sky',
+  
   'Couples',
+  'Flowers',
+  
+  'Wildlife',
+  'Plants',
+  
+  'Christmas',
+  'Photography',
+  
+  'Black',
+  'Dark Tones',
+  
+  'Moody',
+  'Sad',
+  
+  'Fitness',
   'People',
-  'Mans',
-  'Womens',
+  
   'Food',
   'LifeStyle',
-  'Animals',
-  'Sky'
+  
+  'Men',
+  'Women',
 ];

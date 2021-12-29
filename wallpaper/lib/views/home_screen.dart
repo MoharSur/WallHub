@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wallpaper/constants.dart';
@@ -10,14 +9,25 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
         appBar: AppBar(
             // leading: IconButton(
             //   icon: Icon(Icons.settings, color: textColor),
             //   onPressed: () {},
             // ),
-            title: Text('Wallpaper', style: textStyle),
+            title: RichText(
+                text: TextSpan(children: [
+              TextSpan(text: 'Wall ', style: textStyle.copyWith(fontSize: 21)),
+              WidgetSpan(
+                  child: SizedBox(
+                      height: kToolbarHeight * 0.50,
+                      width: 2.0,
+                      child: Container(color: Colors.pink[400]))),
+              TextSpan(
+                  text: ' Hub',
+                  style:
+                      textStyle.copyWith(color: Colors.pink[400], fontSize: 21))
+            ])),
             centerTitle: true),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -26,6 +36,7 @@ class HomeScreen extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             }
             return GridView.builder(
+                // physics: const BouncingScrollPhysics(),
                 itemCount: controller.wallpapers.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
