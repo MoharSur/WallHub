@@ -25,15 +25,18 @@ List<String> wallpaperCategories = [
   
   'Wildlife',
   'Plants',
-  
-  'Christmas',
-  'Photography',
+
+  'Space',
+  'Gaming',
   
   'Black',
   'Dark Tones',
   
   'Moody',
   'Sad',
+
+  'Christmas',
+  'Photography',
   
   'Fitness',
   'People',
